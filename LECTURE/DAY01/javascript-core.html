@@ -4,38 +4,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
   <title>JavaScript Core</title>
+  <link href="http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet">
+  <style>
+    body {width: 75vw; margin: 0 auto; font: 200 100%/1.5 'Spoqa Han Sans', Sans-Serif;}
+    h1 {font-weight: 200; color: #2c9da7;}
+  </style>
+  <script src="js/var.js"></script>
 </head>
 <body>
-<script>
-  // 변수 선언
-  var markup_language,    // 구조 언어
-      style_language,     // 표현 언어
-      behavior_language;  // 동작 언어
-  // 선언된 변수에 값(문자열 데이터)을 할당(대입)
-  markup_language   = 'HTML';
-  style_language    = 'CSS';
-  behavior_language = 'JavaScript';
 
-  // var markup_language_eval   = '흥미롭다';
-  // var style_language_eval    = '훌륭하다';
-  // var behavior_language_eval = '아주 멋지다';
-
-  var markup_language_eval   = '흥미롭다',
-      style_language_eval    = '훌륭하다',
-      behavior_language_eval = '아주 멋지다';
-
-  // 각 언어의 평가(Evaluation)를 변수로 만들어 아래 코드에 대입하여 완성
-</script>
-
-<script>
-  document.write('<h1>Language of World Wide Web</h1>');
-  document.write('<p>'+ markup_language +'은 '+ markup_language_eval +'.</p>');
-  document.write('<p>'+ style_language +'는 '+ style_language_eval +'.</p>');
-  document.write('<p>'+ behavior_language +'는 '+ behavior_language_eval +'.</p>');
-</script>
-  <!-- <h1>JavaScript is Awesome!</h1> -->
+<!-- 스크립트 파일을 로드하거나, 작성하는 위치는 <head>, <body> 안쪽 -->
 
 <!-- 외부의 JavaScript 파일을 호출(Load) -->
+<!-- Front-End 개발 환경에서 자바스크립트 로드 시에 주의할 점! -->
+<!-- 불러오는 순서가 매우 중요 -->
+
+<script src="js/write_html_code.js"></script>
 <script src="js/core-basic.js"></script>
 </body>
 </html>
