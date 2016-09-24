@@ -34,3 +34,12 @@ console.log('current_year:', current_year);
 console.log('c_year:', c_year);
 
 // 참조하는 경우
+// 복합 데이터 활용
+// 배열 데이터
+var study_tools = ['pen', 'note'];
+// study_tools 변수가 참조한 값을
+// class_tools 변수도 참조한 것이다.
+var class_tools = study_tools;
+
+console.log('study_tools:', study_tools);
+console.log('class_tools:', class_tools);
