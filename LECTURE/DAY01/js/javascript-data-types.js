@@ -22,3 +22,15 @@ var app_name = 'Fast Campus JJ CAMP';
 // 불리언을 변수에 할당
 var studing = true;
 var sleeping = false;
+
+// ------------------------------------------
+
+// 변수에 값 복사와 참조
+
+// 복사하는 경우
+var c_year = current_year;
+
+console.log('current_year:', current_year);
+console.log('c_year:', c_year);
+
+// 참조하는 경우
