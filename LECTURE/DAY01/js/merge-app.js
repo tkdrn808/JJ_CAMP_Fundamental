@@ -1,3 +1,9 @@
+/*
+ JJ
+ CAMP
+ Fundamental
+*/
+
 // 문서 객체를 찾아와 변수에 할당(대입)
 var body = document.body;
 var button = document.getElementById('target');
