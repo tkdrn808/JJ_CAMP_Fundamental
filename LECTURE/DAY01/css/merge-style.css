@@ -1,0 +1,9 @@
+/* CSS */
+button {
+  margin-bottom: 10px;
+  padding:1em;
+  background:#7045cf;
+  color:white;
+  border:none;
+  border-radius:4px;
+}
