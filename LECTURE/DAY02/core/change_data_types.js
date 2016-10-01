@@ -48,8 +48,13 @@
  */
 
 // 방법 1. parseInt() 함수에 단위 유형의 문자를 전달한다.   -> 정수(Integer)를 반환
-// 방법 2. parseFloat() 함수에 단위 유형의 문자를 전달한다. -> 실수(Floating)를 반
+// e.g) window.parseInt('20.3%', 10); // 20
 
+// 방법 2. parseFloat() 함수에 단위 유형의 문자를 전달한다. -> 실수(Floating)를 반
+// e.g) window.parseFloat('20.3%', 10); // 20.3
+
+
+// e.g) 문서 객체의 스타일 속성 값을 가져와 조작하는 예시 (parseInt() 활용)
 // 문서에서 요소이름(tagName)이 'h1'인 요소를 탐색하여 수집한다.
 // Nodelist (노드리스트)
 var h1_els = document.getElementsByTagName('h1'); // [ <h1> ]
@@ -58,6 +63,20 @@ var h1 = h1_els.item(0); // Programming에서는 시작되는 숫자 값이 0부
 // 이벤트 속성에 실행할 함수를 연결한다.
 h1.onclick = function() {
   console.log('this is heading 1.');
+  // 클릭하면 h1 참조 객체의 font-size 값을 가져오고자 한다.
+  var current_font_size = h1.style.fontSize;
+
+  // W3C Standard Method
+  current_font_size = window.getComputedStyle(h1).fontSize;
+  // Microsoft Non Standard Method
+  // h1.currentStyle.fontSize;
+
+  // console.log( window.parseInt(current_font_size, 10));
+  current_font_size = window.parseInt(current_font_size, 10);
+
+  current_font_size = current_font_size - 10;
+
+  h1.style.fontSize = current_font_size + 'px';
 };
 // 참고로 수집된 집합 자체에 이벤트를 연결하면 동작하지 않는다.
 h1_els.onclick = function() {
