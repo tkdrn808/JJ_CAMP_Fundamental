@@ -22,7 +22,7 @@
 
 /**
  * --------------------------------
- * String(Link Number) -> Number
+ * String(Like Number) -> Number
  */
 
 // 방법 1. 숫자형 문자 뒤에 0을 빼거나, 1을 곱하거나 나눈다.
@@ -47,8 +47,8 @@
  * 20vw
  */
 
-// 방법 1. partInt() 함수에 단위 유형의 문자를 전달한다.   -> 정수(Integer)를 반환
-// 방법 2. partFloat() 함수에 단위 유형의 문자를 전달한다. -> 실수(Floating)를 반
+// 방법 1. parseInt() 함수에 단위 유형의 문자를 전달한다.   -> 정수(Integer)를 반환
+// 방법 2. parseFloat() 함수에 단위 유형의 문자를 전달한다. -> 실수(Floating)를 반
 
 // 문서에서 요소이름(tagName)이 'h1'인 요소를 탐색하여 수집한다.
 // Nodelist (노드리스트)
