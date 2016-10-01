@@ -34,3 +34,52 @@ var html = document.documentElement,
 var html, body;
 html = document.documentElement;
 body = document.body;
+
+
+/**
+ * --------------------------------
+ * 데이터 값 복사와 참조
+ * ----------------------------- */
+
+/** 값 `복사` */
+// 원시 데이터(Primitive Data Type) 유형 5가지
+// 1. undefined (정의되지 않았다, 부정)
+// 2. null      (비어있다, 부정)
+// 3. Number    (숫자형 데이터)
+// 4. String    (문자형 데이터)
+// 5. Boolean   (논리형 데이터)
+
+var study_name;                                     // undefined
+var no_exist_el = document.getElementById('no-ex'); // null
+var pre_count = -12;                                // Number
+var course_name = 'JJ 첫걸음 CAMP';                   // String
+var is_continue = true;                             // Boolean
+
+var copy_sn = study_name; // copy_sn ????
+
+/** 값 `참조` */
+// 참조형 데이터(Reference Data Type) 유형 [객체(Object)]
+// 참조 데이터 유형 3가지
+// 1. 객체(Plain Object, `{}`)
+// 2. 함수(Function Object, `function(){}`)
+// 3. 배열(Array Object, `[]`)
+var a = 10;
+var b = a;
+var c = {x: a};
+var d = c; // c에 참조된 객체를 d도 참조함.
+console.log('a:',a);
+console.log('b:',b);
+console.log('c:',c);
+console.log('d:',d);
+
+a = 100;
+b = 200;
+c.x = 300;
+
+console.log('a:',a);
+console.log('b:',b);
+console.log('c.x:',c.x);
+console.log('d.x:',d.x); // c에 참조된 객체를 d도 참조하고 있기에 값이 변경됨.
+
+
+
