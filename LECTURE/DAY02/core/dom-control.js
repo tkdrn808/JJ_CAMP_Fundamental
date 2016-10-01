@@ -14,6 +14,7 @@ console.log( 'window.onload:', window.onload ); // null [초기 값]
 // var action = function() { console.log('ready action!'); };
 
 // 초기화 수행
+// 변수 = 함수 값 참조
 var initialization = function() {
   var html          = document.documentElement,
       body          = document.body,
