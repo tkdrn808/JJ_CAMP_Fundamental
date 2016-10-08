@@ -72,9 +72,68 @@ console.log( !!un );  // false
 // 이름이 있는 함수(기명 함수) vs 이름이 없는 함수(무명, 익명 함수)
 // 함수 선언식 vs 함수 표현식
 
+// 함수 표현식
+var getSomeMoney = function(){}; // 함수 값(표현식)
+
 // 왜? 함수를 만들어야 하나?
 // isNaN() 사용이 혼란을 가미하므로
 // 쉽게 이해하고 사용 가능하도록 사용자정의 함수를 만든다.
+// 함수 선언식
 function isNumber(value) {
   return !isNaN(value);
 }
+
+/**
+ * --------------------------------
+ * 함수를 사용하는 방법 3가지
+ * 1. new Function('함수 실행 코드');
+ * 2. var fn = function(){}; 익명(무명)함수: 이름이 없는 함수 (함수 표현식)
+ * 3. function fn(){} 기명함수: 이름이 정의(선언)된 함수
+ */
+
+// 객체를 생성하는 권한을 가진 함수
+// 생성자(Constructor) 함수
+// 생성된 객체(Instance)
+// new Creater('person');
+
+/**
+ * --------------------------------
+ * 변수, 함수
+ * 속성, 메소드 구분
+ * ----------------------------- */
+// 변수
+var eyes = '눈';
+var ears = '귀';
+// 함수
+var crying = function() {
+ console.log('울다');
+};
+// 객체
+var person = {};
+// 변수와 함수를 객체가 소유하게 되면
+// 변수는 객체의 `속성`이라고 불리게 된다.
+// 함수는 객체의 속성임과 동시에 특별히 `메소드`라고 부른다.
+person.eyes = eyes;     // 속성
+person.crying = crying; // 메소드
+
+// console.dir(person);
+
+/**
+ * --------------------------------
+ * 배열 객체(Array Object)
+ * 배열 객체는 여러 개의 데이터를 기억할 수 있는
+ * 공간을 제공하는 객체이다.
+ * 생성된 배열 객체는 기억하기 위해 변수에 할당한다.
+ * ----------------------------- */
+
+// 배열을 사용하지 않았을 때 연관된 복수 데이터 관리 (어렵다)
+var navigation_item_01 = 'Home';
+var navigation_item_02 = 'About';
+var navigation_item_03 = 'Works';
+var navigation_item_04 = 'Products';
+var navigation_item_05 = 'Contact';
+
+// 배열을 사용할 때 연관된 복수 데이터 관리 (쉽고 효율)
+var navigation_items = new Array('Home', 'About', 'Works', 'Products', 'Contact');
+
+console.log( 'navigation_items:', navigation_items );
