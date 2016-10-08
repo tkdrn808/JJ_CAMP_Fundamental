@@ -4,9 +4,42 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="UTF-8">
   <title>자바스크립트 코어 3주차</title>
+  <style>
+    body {
+      margin: 4rem 9rem;
+    }
+    .content {
+      width: 40%;
+      margin-top: 20px;
+      border: 1px solid;
+      padding: 1em;
+    }
+  </style>
   <script src="d3-core.js"></script>
 </head>
 <body>
 
+  <button type="button" class="btn-show-content">Show Content</button>
+
+  <div class="content">
+    <p lang="ru">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Даже, образ своих маленькая рыбного переулка своего щеке вопрос меня?</p>
+  </div>
+
+<script>
+// TODO
+// STEP 0. .content 요소를 선택하여 화면에서 보이지 않도록 만든다.
+var content = document.querySelector('.content');
+// console.log(content);
+content.style.display = 'none';
+// STEP 1. 문서에서 .btn-show-content 버튼을 선택한다.
+var btn_show_content = document.querySelector('.btn-show-content');
+// STEP 2. 선택한 버튼을 사용자가 클릭하면 .content 요소를 화면에 보이게 만든다.
+// btn_show_content.onclick; // null
+btn_show_content.onclick = function(){
+  // console.log('clicked button');
+  // console.log(content);
+  content.style.display = 'block';
+};
+</script>
 </body>
 </html>
