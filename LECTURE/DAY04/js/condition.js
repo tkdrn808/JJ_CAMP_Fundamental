@@ -128,3 +128,36 @@ var im_hungry = false;
 im_hungry ?
   console.log('난 배고파') :
   console.log('난 배고프지 않아');
+
+// 다중 3항 조건식
+// 조건 1 ? 참 : 거짓
+
+// 조건 1 ? 참 : 조건 2 ? 참 : 조건 3 ? 참 : 거짓;
+
+// 조건 1 ?
+//    참 :
+//    조건 2 ?
+//      참 :
+//      조건 3 ?
+//        참 :
+//        거짓;
+
+// 검사, 마법사, 궁수, 엘프, 사냥꾼, 두르이드
+var charactor = '두르이드';
+
+// charactor === '사냥꾼' ? console.log('선택된 캐릭터는 사냥꾼이다.') : charactor === '엘프' ? console.log('선택된 캐릭터는 엘프이다.') : charactor === '두르이드' ? console.log('선택된 캐릭터는 두르이드이다.') : charactor === '궁수' ? console.log('선택된 캐릭터는 궁수이다.') : charactor === '검사' ? console.log('선택된 캐릭터는 검사이다.') : console.log('그럼 넌!! 마법사이구나!');
+
+charactor === '사냥꾼' ?
+  console.log('선택된 캐릭터는 사냥꾼이다.') :
+  charactor === '엘프' ?
+    console.log('선택된 캐릭터는 엘프이다.') :
+    charactor === '두르이드' ?
+      console.log('선택된 캐릭터는 두르이드이다.') :
+      charactor === '궁수' ?
+        console.log('선택된 캐릭터는 궁수이다.') :
+        charactor === '검사' ?
+          console.log('선택된 캐릭터는 검사이다.') :
+          console.log('그럼 넌!! 마법사이구나!');
+
+
+
