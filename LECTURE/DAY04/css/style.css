@@ -21,4 +21,6 @@ body * {
 .slogan {
   padding: 1rem;
   background: #fc3f57;
+  color: #3f0d10;
+  font-weight: 700;
 }
