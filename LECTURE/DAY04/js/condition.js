@@ -87,3 +87,44 @@ else if ( range >= 8 && range <= 27 ) {
 // === 값이 같다  (자동으로 형 변환 발생 X! 굿 패턴) 엄격!!!
 // != 값이 다르다  (자동으로 형 변환 발생! 안티 패턴)
 // !== 값이 다르다 (자동으로 형 변환 발생 X! 굿 패턴) 엄격!!!
+
+// && 두 조건 모두 참일 때만 결과 참
+// || 두 조건 중 하나가 참이면 결과 참
+// !  불리언 값으로 변경하되, 반전시킴
+
+
+console.log('%c------------------------------', 'color: #1c6188');
+
+// ----------------------------------------------------
+// &&, || 연산자 만으로 조건 구문 처리하는 방법!
+
+var drink; // undefined
+
+// if(!drink) { drink = 'default drink'; }
+drink = drink || 'default drink :)';
+
+console.log('drink:', drink);
+
+// if (drink) { drink = 'another drink'; }
+drink = drink && 'another drink :(';
+
+console.log('drink:', drink);
+
+// ----------------------------------------------------
+// 3항 연산자를 사용한 조건문 처리
+// 조건 ? 조건이 참일 경우 실행 : 조건이 거짓일 경우 실행;
+
+var im_hungry = false;
+
+// if ( im_hungry ) {
+//   console.log('난 배고파');
+// } else {
+//   console.log('난 배고프지 않아');
+// }
+
+// im_hungry ? console.log('난 배고파') : console.log('난 배고프지 않아');
+
+// 위 결과와 아래 결과는 동일하다.
+im_hungry ?
+  console.log('난 배고파') :
+  console.log('난 배고프지 않아');
