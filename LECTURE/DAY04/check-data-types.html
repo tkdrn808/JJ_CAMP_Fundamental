@@ -16,9 +16,13 @@
     console.log('typeof head:', typeof head);
     console.log('typeof body:', typeof body);
 
+    console.log('%c---------------------------', 'color: #3d9a21');
+
     console.log('isDataType(html):', isDataType(html) );
     console.log('isDataType(head):', isDataType(head) );
     console.log('isDataType(body):', isDataType(body) );
+
+    console.log('%c---------------------------', 'color: #3d9a21');
 
     // if 조건문
     // (조건)의 결과 값이 true, false 임에 따라 코드 블록문({})의 실행 여부가 결정됨.
@@ -34,6 +38,40 @@
   </script>
 </head>
 <body>
+
+  <script>
+    var page, article, brand, slogan;
+    page    = document.querySelector('#page');
+    article = document.querySelector('.article');
+    brand   = document.querySelector('.brand');
+    slogan  = document.querySelector('.slogan');
+    console.log('%c---------------------------', 'color: #3d9a21');
+    if( isDataType(page) === 'null' )    { console.log('page는 null입니다.');    }
+    if( isDataType(article) === 'null' ) { console.log('article는 null입니다.'); }
+    if( isDataType(brand) === 'null' )   { console.log('brand는 null입니다.');   }
+    if( isDataType(slogan) === 'null' )  { console.log('slogan는 null입니다.');  }
+  </script>
+
+  <div id="page" lang="en">
+    <div class="article">
+      <h1 class="brand">JavaScript is Awesome.</h1>
+      <p class="slogan">JavaScript is Event I/O System.</p>
+    </div>
+  </div>
+
+  <script>
+    page    = document.querySelector('#page');
+    article = document.querySelector('.article');
+    brand   = document.querySelector('.brand');
+    slogan  = document.querySelector('.slogan');
+
+    console.log('%c------------------------------', 'color: #3d9a21');
+
+    if( isDataType(page) !== 'null' )    { console.log('page는 null이 아닙니다.');    }
+    if( isDataType(article) !== 'null' ) { console.log('article는 null이 아닙니다.'); }
+    if( isDataType(brand) !== 'null' )   { console.log('brand는 null이 아닙니다.');   }
+    if( isDataType(slogan) !== 'null' )  { console.log('slogan는 null이 아닙니다.');  }
+  </script>
 
 </body>
 </html>
