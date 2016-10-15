@@ -5,6 +5,7 @@ page              = document.querySelector('#page');
 article           = document.querySelector('.article');
 brand             = document.querySelector('.brand');
 slogan            = document.querySelector('.slogan');
+
 mouseEventHandler = function(event) {
   // Event Object {}
   if(event.type === 'click') {
@@ -20,6 +21,7 @@ mouseEventHandler = function(event) {
     console.log('mouse click, over, out: X');
   }
 };
+
 // 참조된 문서 요소객체에 각각 이벤트 연결(Binding)
 page.onclick     = mouseEventHandler;
 page.onmouseover = mouseEventHandler;
