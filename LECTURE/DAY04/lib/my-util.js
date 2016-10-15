@@ -11,3 +11,9 @@ function checkDomElement(element) {
     console.log('<' + element.nodeName.toLowerCase() + '>는 문서 요소객체입니다.');
   }
 }
+
+// console {}
+//  .log()   기록하다.
+//  .info()  정보를 표시하다.
+//  .error() 오류를 출력하다.
+//  .dir()   분석하다.

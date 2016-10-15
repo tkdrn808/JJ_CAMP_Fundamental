@@ -27,3 +27,47 @@ if(condition === true) {
 } else {
   console.log('condition is FALSE.');
 }
+
+console.log('%c------------------------------', 'color: #3d9a21');
+
+var rank = 1;
+
+// rank 조건이 1이라면 블록문 {} 수행
+if ( rank === 1 ) {
+    console.log('rank is One.');
+}
+// rank 조건이 2라면 블록문 {} 수행
+else if ( rank === 2 ) {
+    console.log('rank is Two.');
+}
+// rank 조건이 3이라면 블록문 {} 수행
+else if ( rank === 3 ) {
+    console.log('rank is Three.');
+}
+// rank 조건이 4라면 블록문 {} 수행
+else if ( rank === 4 ) {
+    console.log('rank is Four.');
+}
+// rank 조건이 1, 2, 3, 4가 아니라면 블록문 {} 수행
+else {
+    console.log('rank isn\'t One, Two, Three, Four.');
+}
+
+console.log('%c------------------------------', 'color: #c21359');
+
+
+// range 변수 선언 및 숫자 값 복사
+var range = 123;
+
+// if 조건 구문 (조건 개수: 3개)
+if ( range < 8 ) {
+  console.log('range 값은 8보다 작은 수입니다.');
+}
+// 논리 연산자
+// 그리고(AND) &&       A && B
+// 또는(OR)   ||       A || B
+else if ( range >= 8 && range <= 27 ) {
+  console.log('range 값은 8 이상, 27 이하의 수입니다.');
+} else {
+  console.log('range 값은 27 보다 큰 수입니다.');
+}
