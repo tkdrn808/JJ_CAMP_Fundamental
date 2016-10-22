@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-gallery-container {
+  display: flex;
+  width: 810px;
+  flex-direction: row-reverse;
+}
+
+.photo-gallery-control {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+}
+.photo-gallery-control a {
+  flex: 0 0 200px;
+  margin-bottom: 10px;
+}
+
+.photo-gallery-control img {
+  vertical-align: top;
+}
+
+.photo-gallery-view {
+  flex: 1;
+}
