@@ -9,6 +9,7 @@ var container_view = container.querySelector('.photo-gallery-view');
 for(var i=0, l=container_buttons.length; i<l; i++) {
   var button = container_buttons[i];
   button.index = i+1;
+  button.alt = button.querySelector('img').alt;
   button.onclick = changePhotoGalleryView;
 }
 
@@ -16,10 +17,11 @@ function changePhotoGalleryView() {
   // view 컨테이너 내부의 이미지 교체
   // console.log(this.index);
   var view_img = container_view.querySelector('img');
-  var index = 1;
   // src="http://placehold.it/600x620?text=01" alt="Big 01"
-  view_img.src = 'http://placehold.it/600x620?text=0'+this.index;
-  view_img.alt = 'Big 0'+this.index;
+  // view_img.src = 'http://placehold.it/600x620?text=0'+this.index;
+  view_img.src = 'images/big/0'+ this.index +'.jpg';
+  view_img.alt = this.alt;
+  view_img.title = view_img.alt;
   // 브라우저의 기본 동작 차단
   return false;
 }

@@ -8,7 +8,7 @@ body {
 
 .photo-gallery-container {
   display: flex;
-  width: 810px;
+  width: 805px;
   flex-direction: row-reverse;
 }
 
@@ -19,7 +19,7 @@ body {
 }
 .photo-gallery-control a {
   flex: 0 0 200px;
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
   opacity: 0.6;
   transition: opacity 0.3s ease-in;
 }
