@@ -51,3 +51,20 @@ switch( condition ) {
   default:
     console.log('case is... %cthis isn\'t cup, pen, remote.', console_style);
 }
+
+
+var count = '9';
+var counter = [8, 5, 2, -10, 9];
+switch(count) {
+  // 아래 case의 경우 결과 값은 true이기 때문에
+  // count 값과 일치하지 않게 된다.
+  // case count > 10:
+  // switch 구문에서는 값 비교 시 엄격한 비교를 수행한다.
+  case counter[counter.length - 1]:
+    // console.log('count는 10보다 크다.');
+    console.log('count는 숫자 9이다.');
+  break;
+  case count < 10:
+    console.log('count는 10보다 작다.');
+  break;
+}
