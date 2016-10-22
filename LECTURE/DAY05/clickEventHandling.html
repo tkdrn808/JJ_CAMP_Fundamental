@@ -9,10 +9,11 @@
     .box-container    { display: flex; min-height: 100vh; }
     .box              { flex: 1; }
     .box a            { color: #fff; text-decoration: none; font-size: 2rem; }
-    .box:first-child  { background: #dd7260; }
-    .box:nth-child(2) { background: #8d3f35; }
-    .box:nth-child(3) { background: #4c241f; }
-    .box:last-child   { background: #110b0a; }
+    /*.box:first-child  { background: #dd7260; }*/
+    .box:nth-child(2n-1)  { background: #dd7260; }
+    .box:nth-child(2n) { background: #8d3f35; }
+    /*.box:nth-child(3n) { background: #4c241f; }*/
+    /*.box:last-child   { background: #110b0a; }*/
     .flex-cm          { display: flex; justify-content: center; align-items: center; }
   </style>
 </head>
@@ -31,7 +32,87 @@
     <div class="box flex-cm">
       <a role="button" href="#box4">box 4</a>
     </div>
+    <div class="box flex-cm">
+      <a role="button" href="#box5">box 5</a>
+    </div>
+    <div class="box flex-cm">
+      <a role="button" href="#box6">box 6</a>
+    </div>
+    <div class="box flex-cm">
+      <a role="button" href="#box7">box 7</a>
+    </div>
+    <div class="box flex-cm">
+      <a role="button" href="#box8">box 8</a>
+    </div>
+    <div class="box flex-cm">
+      <a role="button" href="#box7">box 7</a>
+    </div>
+    <div class="box flex-cm">
+      <a role="button" href="#box8">box 8</a>
+    </div>
   </div>
 
+<script>
+// 문서에서 .box-container 요소를 찾아 변수에 참조한다.
+var container = document.querySelector('.box-container');
+// .box-container 문서 요소 참조 변수에서 내부에 포함된 <a>요소를 수집한다.
+var box_buttons = container.querySelectorAll('a');
+console.log('container:', container);
+console.log('box_buttons:', box_buttons);
+
+// 수집된 각 박스의 버튼
+console.log('box_buttons[0]:', box_buttons[0]);
+console.log('box_buttons[1]:', box_buttons[1]);
+console.log('box_buttons[2]:', box_buttons[2]);
+console.log('box_buttons[3]:', box_buttons[3]);
+console.log('box_buttons[4]:', box_buttons[4]); // undefined
+
+// 이벤트 핸들러 연결
+// for문으로 변경
+// for ( var i=0, l=box_buttons.length; i<l; i++ ) {
+//   // console.log(box_buttons[i]);
+//   box_buttons[i].onclick = function() {
+//     console.log(this);
+//   };
+//   // console.log(box_buttons.item(i));
+// }
+
+// while문으로 변경
+var i=0, l=box_buttons.length; // 4
+while ( i < l ) {
+  // console.log(box_buttons[i]);
+  box_buttons[i].onclick = actionBoxButton;
+  // console.log(box_buttons.item(i));
+  i++;
+}
+
+function actionBoxButton() {
+  console.log(this);
+};
+// box_buttons[0].onclick = function() {
+//   console.log(this);
+// };
+// box_buttons[1].onclick = function() {
+//   console.log(this);
+// };
+// box_buttons[2].onclick = function() {
+//   console.log(this);
+// };
+// box_buttons[3].onclick = function() {
+//   console.log(this);
+// };
+// box_buttons[4].onclick = function() {
+//   console.log(this);
+// };
+// box_buttons[5].onclick = function() {
+//   console.log(this);
+// };
+// box_buttons[6].onclick = function() {
+//   console.log(this);
+// };
+// box_buttons[7].onclick = function() {
+//   console.log(this);
+// };
+</script>
 </body>
 </html>
