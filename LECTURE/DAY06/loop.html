@@ -21,14 +21,59 @@
       width: 200px;
       padding: 1em;
     }
+    .btn-assign-css-object {
+      position: fixed;
+      top: 30px;
+      left: 30px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      padding: 1em;
+      background: #000;
+      color: #fff;
+    }
   </style>
-  <script src="for-in.js"></script>
+  <!-- <script src="for-in.js"></script> -->
 </head>
 <body>
+
+  <button
+    type="button"
+    class="btn-assign-css-object">
+    css 속성 추가
+  </button>
 
   <div class="target-element">
     taget <code>div</code> element
   </div>
 
+<script>
+// TODO
+// 1-1. 문서(document)에서 .target-element를 찾아 변수에 할당(적절한 변수 이름 작성)
+var target_el = document.querySelector('.target-element');
+console.log('target_el:', target_el);
+// 1-2. 이벤트를 제어할 버튼 요소를 문서에서 찾아 변수에 할당(적절한 변수 이름 작성)
+var assign_btn = document.querySelector('.btn-assign-css-object');
+console.log('assign_btn:', assign_btn);
+// 1-3. 설정할 CSS 객체를 선언과 동시에 값으로서 객체를 정의
+var css_object = {
+  'font-size'      : '6rem',
+  'outline'        : '3px solid #e4e4e4',
+  'letter-spacing' : '-0.02em',
+  'color'          : '#fe4940'
+};
+// 2. 변수에 참조된 버튼 객체를 사용자가 클릭하면 (이벤트 연결 <-> 함수(이벤트 핸들러))
+assign_btn.onclick = assignCSSObject;
+// 3. 함수의 로직을 작성 (설정할 css 객체를 for ~ in문으로 순환하여 스타일 적용)
+// 코드 로직
+// target_el.style['font-size'] = css_object['font-size'];
+function assignCSSObject() {
+  for (var prop in css_object ) {
+    var value = css_object[prop]; // css_object['font-size']
+    // console.log(prop,':', value);
+    target_el.style[prop] = css_object[prop];
+  }
+}
+</script>
 </body>
 </html>
