@@ -14,9 +14,9 @@
 // function 함수이름() {}
 
 function aboutFunction() {
-  console.log('this is function object.');
-  console.log('function has properties.');
-  console.log('function will call object.');
+  console.log('This is a function object.');
+  console.log('Function object has an attribute.');
+  console.log('Function objects can be invoked later.');
 }
 
 // 함수 이름 호출(실행)
@@ -24,3 +24,6 @@ typeof aboutFunction(); // 'undefined'
 
 // 함수 이름 ( 호출 X, 실행 X )
 typeof aboutFunction; // 'function'
+
+// aboutFunction 함수를 수행할 때 마다
+// 함수에 관한 메시지를 순차적으로 하나씩 출력하는 봇(Bot)을 만들자.
