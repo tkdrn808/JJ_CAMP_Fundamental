@@ -27,13 +27,16 @@ for ( var i=0; i<data_collection.length; i=i+1 ) {
 
 // 객체 정의 (속성: 값 추가)
 var zico = {
-   'name': '지코',
-   'amount': '300ml',
-   'source': 'cocoa oil'
+  'name'   : '지코',
+  'amount' : '300ml',
+  'source' : 'cocoa oil'
 };
 
 // 객체의 속성 포함 유무를 확인할 때 in 키워드 사용
-'name' in zico; // true
+console.log('name' in zico); // true
+
+// 객체에 새로운 속성 설정
+zico.length = 3;
 
 // 객체의 속성을 지울 때 delete 키워드 사용
 delete zico.length; // 제거
