@@ -27,3 +27,36 @@ typeof aboutFunction; // 'function'
 
 // aboutFunction 함수를 수행할 때 마다
 // 함수에 관한 메시지를 순차적으로 하나씩 출력하는 봇(Bot)을 만들자.
+
+
+
+// 함수를 만드는 자주 사용되는 방법 2가지
+
+// 1. 함수를 정의하는 방법
+function drinkMilk() {
+  console.log('밀크를 마시다.');
+  // return undefined;
+}
+
+// 2. 함수 표현식을 변수에 참조하는 방법
+var lookAt = function(){
+  console.log('무엇무엇을 응시하다.');
+};
+
+// 문서 객체 변수에 참조
+var target_btn = document.querySelector('button.target');
+
+// 문서객체.이벤트속성 = 함수이름;
+// target_btn.onclick; // null, function(){}
+
+// 문서 요소객체의 이벤트 속성(객체가 소유한 변수)에 함수의 실행 결과 반환 값을 복사/참조
+target_btn.onclick = drinkMilk(); // (X)
+
+// 문서 요소객체의 이벤트 속성(객체가 소유한 변수)에 함수를 참조
+// 참조된 함수의 실행 시점(Event)은 사용자가 버튼을 클릭했을 때
+target_btn.onclick = drinkMilk;   // (O)
+
+// 문서객체.이벤트속성 = 함수값;
+target_btn.onmouseenter = function() {
+  console.log('버튼에 마우스가 올라갔다.');
+};
