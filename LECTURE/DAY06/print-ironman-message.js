@@ -11,6 +11,8 @@ about_function_messages.push('Function is usafull feature.');
 // console.log('about_function_messages:', about_function_messages);
 
 function printFunctionMessage() {
+  // console.log(about_function_messages[ message_count++ % about_function_messages.length ]);
+  // return undefined;
   return about_function_messages[ message_count++ % about_function_messages.length ];
   // message_count = (message_count + 1) % about_function_messages.length;
 }
@@ -23,6 +25,6 @@ var print_button  = ironman.querySelector('.ironman-print-button');
 
 print_button.onclick = function() {
   var print_message = printFunctionMessage();
-  console.log(print_message);
+  console.log('click function 내부: ', print_message);
   ironman_message.textContent = print_message;
 };

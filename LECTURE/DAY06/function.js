@@ -36,6 +36,7 @@ typeof aboutFunction; // 'function'
 function drinkMilk() {
   console.log('밀크를 마시다.');
   // return undefined;
+  // return '밀크를 마시다.';
 }
 
 // 2. 함수 표현식을 변수에 참조하는 방법
