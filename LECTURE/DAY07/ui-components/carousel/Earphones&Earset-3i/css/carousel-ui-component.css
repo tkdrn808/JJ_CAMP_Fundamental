@@ -1,6 +1,15 @@
 /*! carousel-ui-component.css © yamoo9.net, 2016 */
 
 /* common style module */
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.ir {
+  overflow: hidden;
+  text-indent: -9999em;
+}
 .readable-hidden {
   overflow: hidden;
   position: absolute;
@@ -34,3 +43,77 @@ body {
 .novaT { font-family: "proximanova thin"; }
 .novaR { font-family: "proximanova regular"; }
 .novaB { font-family: "proximanova bold"; }
+
+/* carousel-component-ui */
+.carousel-container img {
+  width: 100vw;
+  height: auto;
+}
+
+.carousel-container button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.carousel-container button:focus {
+  outline: none;
+  outline-offset: 0.3em;
+  box-shadow: 0 0 0 4px hsla(198, 82%, 47%, 0.32);
+}
+
+/* .carousel-indicator */
+.carousel-indicator button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #696966;
+  transition: all 0.3s ease-out;
+}
+
+.carousel-indicator button:hover {
+  background: #323232;
+}
+
+.carousel-indicator button:active {
+  outline-offset: 0.3em;
+  box-shadow: 0 0 0 4px hsla(78, 82%, 67%, 0.2);
+}
+
+/* .carousel-navigator */
+.carousel-navigator button {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  background: #212121;
+  border-radius: 50%;
+}
+.carousel-navigator button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 8px;
+  height: 8px;
+  opacity: 0.7;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transition: all .4s ease-out;
+}
+.carousel-navigator button:hover::before {
+  opacity: 1;
+}
+
+.carousel-navigator .carousel-previous-btn::before {
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+}
+.carousel-navigator .carousel-next-btn::before {
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.carousel-view img {
+  float: left;
+}
