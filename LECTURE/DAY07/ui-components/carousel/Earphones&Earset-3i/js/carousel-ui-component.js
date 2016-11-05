@@ -1,10 +1,12 @@
 /*! carousel-ui-component.js © yamoo9.net, 2016 */
 
-var container, controls, view;
+var container, controls, view, carousel_content_active_index;
 
 container = document.querySelector('.carousel-container');
 controls  = container.querySelector('.carousel-controls');
 view      = container.querySelector('.carousel-view');
+// 현재 활성화된 콘텐츠의 인덱스
+carousel_content_active_index = 0;
 
 // console.log('container:', container);
 // console.log('controls:', controls);
@@ -23,6 +25,30 @@ view.style.width = view_width + 'px';
 // 각 이미지를 순환 처리하여 컨테이너 요소의 너비 만큼 이미지 너비를 설정한다.
 for (var i=0; i<view_contents_length; i++ ) {
   var view_content = view_contents.item(i);
-  console.log(view_content); // 각 <img> 출력
+  // console.log(view_content); // 각 <img> 출력
   view_content.style.width = view_content_width + 'px';
 }
+
+// 버튼 이벤트 연결
+// 버튼의 부모 요소에게 이벤트 위임
+var prev_btn = controls.querySelector('.carousel-previous-btn');
+var next_btn = controls.querySelector('.carousel-next-btn');
+
+prev_btn.onclick = prevMoveCarouselContentView;
+next_btn.onclick = nextMoveCarouselContentView;
+
+function prevMoveCarouselContentView(){
+  carousel_content_active_index = --carousel_content_active_index % view_contents_length;
+  console.log(carousel_content_active_index);
+}
+
+var view_position = ['0', '-25%', '-50%', '-75%'];
+
+function nextMoveCarouselContentView(){
+  carousel_content_active_index = ++carousel_content_active_index % view_contents_length;
+  view.style.transform = 'translateX('+ view_position[carousel_content_active_index] +')';
+}
+
+var indicator_items = controls.querySelectorAll('.carousel-tab');
+
+// console.log(indicator_items);
