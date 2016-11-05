@@ -7,8 +7,17 @@ body {
   height: 100vh;
   background: radial-gradient(circle, #d4792a, #731b20);
 }
+
+::selection {
+  background: #551515;
+  color: #fff;
+  text-shadow: none;
+}
+
+
 .ironman {
   position: relative;
+  text-align: center;
 }
 .ironman .message {
   opacity: 0;
@@ -91,6 +100,33 @@ body {
   position: relative;
   top: 2px;
   box-shadow: none;
+}
+
+.play-sound-title {
+  border-top: 1px solid #bc6228;
+  border-bottom: 1px solid #bc6228;
+  padding: 0.4em 0.5em;
+  background: linear-gradient(90deg, transparent 1%, hsla(40, 82%, 76%, 0.45), transparent 99%);
+  color: #f6f4eb;
+  font-family: "YouandiModernTB";
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 1px #673716;
+  box-shadow: 0 10px 20px 0 hsla(22, 64%, 37%, 0.3);
+}
+
+.sound-control-button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 24px;
+  border-radius: 50%;
+  padding: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 0 5px 10px hsla(0,0%,0%,.25);
 }
 
 @keyframes fade-out {

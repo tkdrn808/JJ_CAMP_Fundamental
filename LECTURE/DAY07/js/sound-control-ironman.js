@@ -13,8 +13,25 @@ ironman_audio_obj = document.createElement('audio');
 // 생성된 오디오 객체를 참조하고 있는 변수 ironman_audio_obj에 src 속성을 설정합니다.
 // 음원 소스를 src 속성의 값으로 설정합니다.
 // 음원을 설정하는 경로는 HTML 파일 기준의 상대 위치 설정입니다.
-var playlist = [ 'myturn', 'special', 'wantone' ];
-ironman_audio_obj.setAttribute('src', 'media/' + playlist[playlist.length - 1] + '.mp3');
+
+// 음원 출처: http://www.moviesoundclips.net/sound.php?id=152
+var playlist = [ 'myturn', 'special', 'run', 'wantone' ];
+// 사운드 음성을 랜덤하게 처리
+// 자바스크립트 Math 객체를 활용
+var random_play_index = getRandomNumber( playlist.length );
+// console.log(random_play_index);
+var play_sound_path = 'media/' + playlist[ random_play_index ] + '.mp3';
+ironman_audio_obj.setAttribute('src', play_sound_path);
+
+// .play-sound-title 요소에 선택된 음원 타이틀 출력
+var play_sound_title = document.querySelector('.play-sound-title');
+
+// HTML DOM 방식
+play_sound_title.innerHTML = play_sound_path;
+// play_sound_title.textContent = play_sound_path;
+
+// XML DOM 방식
+// play_sound_title.firstChild.nodeValue = play_sound_path;
 
 // autoplay 속성 설정
 // ironman_audio_obj.setAttribute('autoplay', 'autoplay');
@@ -22,15 +39,18 @@ ironman_audio_obj.setAttribute('src', 'media/' + playlist[playlist.length - 1] +
 // console.log('ironman_audio_obj:', ironman_audio_obj); //<audio></audio>
 
 // 자바스크립트에서 DOM API가 제공하는 이벤트를 사용하여 컨트롤
-console.dir(ironman_audio_obj);
+// console.dir(ironman_audio_obj);
 
 // ironman_audio_obj.oncanplay = playSound;
+// ironman_audio_obj.ontimeupdate = function() {
+//   console.log(this.currentTime);
+// };
 
 // 문서에서 .ironman-print-button 버튼 요소를 찾아 이벤트를 연결
 var ironman_btn = document.querySelector('.ironman-print-button');
 
 // 이벤트 제어
-ironman_btn.onmouseenter = playSound;
+ironman_btn.onclick = playSound;
 ironman_btn.onmouseleave = stopSound;
 
 // 아이언맨 음원 재생(play) 함수
@@ -49,4 +69,9 @@ function pauseSound() {
 function stopSound() {
   pauseSound();
   ironman_audio_obj.currentTime = 0;
+}
+
+// 랜덤 숫자 반환 함수
+function getRandomNumber(n) {
+  return Math.floor(Math.random() * n);
 }
