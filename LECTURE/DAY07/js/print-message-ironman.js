@@ -1,4 +1,4 @@
-/*! print-ironman-message.js © yamoo9.net, 2016 */
+/*! print-message-ironman.js © yamoo9.net, 2016 */
 
 var message_count = 0;
 var about_function_messages = [];
