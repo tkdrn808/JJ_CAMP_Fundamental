@@ -1,12 +1,12 @@
 /*! carousel-ui-component.js © yamoo9.net, 2016 */
 
-var container, controls, view, carousel_content_active_index;
+var container, controls, view, active_index;
 
 container = document.querySelector('.carousel-container');
 controls  = container.querySelector('.carousel-controls');
 view      = container.querySelector('.carousel-view');
 // 현재 활성화된 콘텐츠의 인덱스
-carousel_content_active_index = 0;
+active_index = 0;
 
 // console.log('container:', container);
 // console.log('controls:', controls);
@@ -38,17 +38,16 @@ prev_btn.onclick = prevMoveCarouselContentView;
 next_btn.onclick = nextMoveCarouselContentView;
 
 function prevMoveCarouselContentView(){
-  carousel_content_active_index = --carousel_content_active_index % view_contents_length;
-  console.log(carousel_content_active_index);
+  active_index = --active_index % view_contents_length;
+  if ( active_index < 0) {
+    active_index = view_contents_length - 1;
+  }
+  view.style.transform = 'translateX('+ (-1 * view_content_width * active_index) +'px)';
 }
 
-var view_position = ['0', '-25%', '-50%', '-75%'];
-
 function nextMoveCarouselContentView(){
-  carousel_content_active_index = ++carousel_content_active_index % view_contents_length;
-  view.style.transform = 'translateX('+ view_position[carousel_content_active_index] +')';
+  active_index = ++active_index % view_contents_length;
+  view.style.transform = 'translateX('+ (-1 * view_content_width * active_index) +'px)';
 }
 
 var indicator_items = controls.querySelectorAll('.carousel-tab');
-
-// console.log(indicator_items);
