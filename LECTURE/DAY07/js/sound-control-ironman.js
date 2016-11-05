@@ -75,3 +75,23 @@ function stopSound() {
 function getRandomNumber(n) {
   return Math.floor(Math.random() * n);
 }
+
+// sound-control-button
+var sound_control_buttons = document.querySelectorAll('.sound-control-button');
+
+// 반복문
+for ( var i=0, l=sound_control_buttons.length; i<l; i++ ) {
+  var button = sound_control_buttons[i];
+  var button_label = button.getAttribute('aria-label');
+  switch(button_label) {
+    case '재생':
+      button.onclick = playSound;
+    break;
+    case '일시정지':
+      button.onclick = pauseSound;
+    break;
+    case '정지':
+      button.onclick = stopSound;
+    break;
+  }
+}
