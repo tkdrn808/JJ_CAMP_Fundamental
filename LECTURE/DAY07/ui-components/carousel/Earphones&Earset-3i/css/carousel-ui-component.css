@@ -1,3 +1,26 @@
+/*! carousel-ui-component.css © yamoo9.net, 2016 */
+
+/* browser style initialization */
+html {
+  overflow-y: scroll;
+  /* -----------------------------------------------
+   * 폰트 안티앨리어싱(font-smoothing): 글자 처리 부드럽게
+   * none | subpixel-antialiased | antialiased
+   * http://files.christophzillgens.com/webkit-font-smoothing.html
+   * http://maxvoltar.com/sandbox/fontsmoothing/
+   * http://www.icondeposit.com/blog:how-to-properly-smooth-font-using-css3
+   -------------------------------------------------
+   * font smooting for windows
+   * http://forum.cockos.com/showthread.php?t=126465
+   * -------------------------------------------- */
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+body {
+  margin: 0;
+}
+
+/* webfonts */
 .novaT { font-family: "proximanova thin"; }
 .novaR { font-family: "proximanova regular"; }
 .novaB { font-family: "proximanova bold"; }
