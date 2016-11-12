@@ -84,29 +84,43 @@ function init() {
 
   // --------------------------------------------------------------------------------
   // 인디케이터 (표시자)
+  // --------------------------------------------------------------------------------
+  // 추상화(Abstract)
+  // 여러분이 구현할 것을 정리(추상)
+  // 인디케이터를 사용자가 클릭했을 때 발생하는 일
+  // 수행하는 일 1. 이전에 활성화되었던 인디케이터는 비 활성화, 클릭한 인디케이터는 활성화
+  // 수행하는 일 2. 뷰(carousel-view) 영역이 클릭한 인디케이터의 인덱스(순서)에 해당하는 위치로 이동
   var indicator_items = controls.querySelectorAll('.carousel-tab');
 
   // console.log('indicator_items:', indicator_items);
 
   for (var i=0, l=indicator_items.length; i<l; i++) {
     // console.log(i, indicator_items[i]);
+    var item = indicator_items[i];
+    item.index = i;
     indicator_items[i].onclick = activeSelectedItem;
   }
 
-  var selected_item = null; // 초기 값
+  // indicator_items[0].onclick = activeSelectedItem;
+  // indicator_items[1].onclick = activeSelectedItem;
+  // indicator_items[2].onclick = activeSelectedItem;
+  // indicator_items[3].onclick = activeSelectedItem;
+
+  var selected_item = null; // 아직 사용자는 아무 것도 선택하지 않았다.
 
   function activeSelectedItem() {
+    var item = this;
+    // console.log('selected_item:', selected_item);
     if ( selected_item !== null ) {
       selected_item.classList.remove('active-tab');
     }
-    this.classList.add('active-tab');
-    selected_item = this;
-  }
+    item.classList.add('active-tab');
+    selected_item = item; // 변수 값이 런타임 중에 바뀔 수 있다.
 
-  // 추상화(Abstract)
-  // 여러분이 구현할 것을 정리(추상)
-  // 인디케이터를 사용자가 클릭했을 때 발생하는 일
-  // 수행하는 일 1. 이전에 활성화되었던 인디케이터는 비 활성화, 클릭한 인디케이터는 활성화
-  // 수행하는 일 2. 뷰(carousel-view) 영역이 클릭한 인디케이터의 인덱스(순서)에 해당하는 위치로 이동
+    // console.log('item.index:', item.index);
+
+    var distance = view_content_width * item.index;
+    view.style.transform = 'translateX('+ (-1 * distance) +'px)';
+  }
 
 }
