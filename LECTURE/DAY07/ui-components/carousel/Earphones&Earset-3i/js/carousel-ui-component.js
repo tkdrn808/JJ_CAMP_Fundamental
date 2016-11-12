@@ -71,15 +71,12 @@ function init() {
     if ( active_index < 0) {
       active_index = view_contents_length - 1;
     }
-    view.style.transform = 'translateX('+ (-1 * view_content_width * active_index) +'px)';
+    indicator_items[active_index].onclick();
   }
 
   function nextMoveCarouselContentView(){
     active_index = ++active_index % view_contents_length;
-    view.style.transform = 'translateX('+ (-1 * view_content_width * active_index) +'px)';
-    // view.style.position = 'absolute';
-    // view.style.top = '0px';
-    // view.style.left = -1 * view_content_width * active_index +'px';
+    indicator_items[active_index].onclick();
   }
 
   // --------------------------------------------------------------------------------
@@ -120,6 +117,9 @@ function init() {
     // console.log('item.index:', item.index);
 
     var distance = view_content_width * item.index;
+    // 인디케이터를 클릭했을 때 활성화 인덱스도 변경 (싱크)
+    active_index = item.index;
+    // console.log('indicator:', active_index);
     view.style.transform = 'translateX('+ (-1 * distance) +'px)';
   }
 
