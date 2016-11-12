@@ -51,7 +51,7 @@ body {
 /* carousel-component-ui */
 .carousel-container {
   position: relative;
-  width: 1000px;
+  width: 90%;
   /*overflow-x: scroll;*/
   overflow: hidden;
   outline: 1px solid #dedede;
