@@ -86,4 +86,27 @@ function init() {
   // 인디케이터 (표시자)
   var indicator_items = controls.querySelectorAll('.carousel-tab');
 
+  // console.log('indicator_items:', indicator_items);
+
+  for (var i=0, l=indicator_items.length; i<l; i++) {
+    // console.log(i, indicator_items[i]);
+    indicator_items[i].onclick = activeSelectedItem;
+  }
+
+  var selected_item = null; // 초기 값
+
+  function activeSelectedItem() {
+    if ( selected_item !== null ) {
+      selected_item.classList.remove('active-tab');
+    }
+    this.classList.add('active-tab');
+    selected_item = this;
+  }
+
+  // 추상화(Abstract)
+  // 여러분이 구현할 것을 정리(추상)
+  // 인디케이터를 사용자가 클릭했을 때 발생하는 일
+  // 수행하는 일 1. 이전에 활성화되었던 인디케이터는 비 활성화, 클릭한 인디케이터는 활성화
+  // 수행하는 일 2. 뷰(carousel-view) 영역이 클릭한 인디케이터의 인덱스(순서)에 해당하는 위치로 이동
+
 }
