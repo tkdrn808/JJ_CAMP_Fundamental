@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>시간을 제어하는 전역 함수를 이용하여 애니메이션 구현</title>
+  <style>
+    body { margin: 5rem 10rem; }
+    .ball {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #000;
+      background: radial-gradient(circle,#72cfff 20px, #1f72a2 20px,#1f72a2 40px);
+    }
+  </style>
+  <script>
+    function playAnimation( callback, time ) {
+      return window.setInterval( callback, time );
+    }
+    function stopAnimation(id) {
+      window.clearInterval(id);
+    }
+    // playAnimation(function(){
+
+    // }, 100);
+
+    function initBallMoving() {
+      var ball = document.querySelector('.ball');
+      // ball 이동
+
+    }
+
+    // initBallMoving();
+
+    // window load 상태가 완료되면, 실행
+    window.onload = initBallMoving;
+  </script>
+</head>
+<body>
+  <div class="ball"></div>
+</body>
+</html>
