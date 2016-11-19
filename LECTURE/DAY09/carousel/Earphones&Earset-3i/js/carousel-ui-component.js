@@ -3,9 +3,22 @@
 // 전역 공간
 window.onload = init;
 
+/** @function playAnimation() */
+function playAnimation( callback, time ) {
+  return window.setInterval( callback, time );
+}
+
+/** @function stopAnimation() */
+function stopAnimation(id) {
+  window.clearInterval(id);
+}
+
+/** @function init() */
 function init() {
   // 지역 공간
 
+  var using_animation = true;
+  var animation_duration = 3000;
   var selected_num    = 0;
   var selected_tab    = null;
   var container       = document.querySelector('.carousel-container');
@@ -55,6 +68,30 @@ function init() {
     selected_tab = tab;
     // --------------------------------------------------------------
     view.style.left = -1 * num * container_width + 'px';
+  }
+
+
+
+  var ani_control_id = null;
+
+  function playCarousel() {
+    // 애니메이션 컨트롤
+    ani_control_id = playAnimation(function() {
+      next_button.onclick();
+    }, animation_duration);
+  }
+
+  function stopCarousel() {
+    stopAnimation(ani_control_id);
+  };
+
+  // 움직임을 정지시킬 이벤트 설정
+
+  // 페이지 로드가 완료되면 애니메이션 실행
+  if ( using_animation ) {
+    container.onmouseout = playCarousel;
+    container.onmouseover = stopCarousel;
+    playCarousel();
   }
 
   // 사용자 액션 시뮬레이션
