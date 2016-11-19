@@ -157,3 +157,14 @@ body {
 .carousel-view img {
   float: left;
 }
+
+.carousel-play-stop-control {
+  position: absolute;
+  z-index: 1000;
+  bottom: 20px;
+  right: 20px;
+}
+
+.carousel-play-stop-control button {
+  font-size: 30px;
+}

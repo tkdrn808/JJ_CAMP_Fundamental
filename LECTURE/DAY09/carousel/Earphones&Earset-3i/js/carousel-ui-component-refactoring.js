@@ -20,26 +20,25 @@ function stopAnimation(id) {
 // 캐러셀 컴포넌트 (함수형 프로그래밍, 절차 지향)
 /////////////////////////////////////////
 
-
 // 초기 변수 설정
-var using_animation;
-var animation_duration;
-var ani_control_id;
-var selected_num;
-var selected_tab;
-var container;
-var container_width;
-var view;
-var view_contents;
-var tabs;
-var tabs_total;
-var prev_button;
-var next_button;
+var using_animation    = null;
+var animation_duration = null;
+var ani_control_id     = null;
+var selected_num       = null;
+var selected_tab       = null;
+var container          = null;
+var container_width    = null;
+var view               = null;
+var view_contents      = null;
+var tabs               = null;
+var tabs_total         = null;
+var prev_button        = null;
+var next_button        = null;
 
 
 // 캐러셀 초기화 (이벤트 처리)
 window.onload = function() {
-  initCarousel( 3, true, 500 );
+  initCarousel( 0, true, 400 );
 };
 
 /** @function initCarousel() */
@@ -91,6 +90,7 @@ function bindingEventsCarouselControlls() {
       selected_num = this.num;
       activeViewContent( this, selected_num );
     };
+    tab.onfocus = stopCarousel;
   }
   prev_button.onclick = prevViewContent;
   next_button.onclick = nextViewContent;
@@ -112,7 +112,6 @@ function activeViewContent(tab, num) {
   }
   tab.classList.add('active-tab');
   selected_tab = tab;
-  // --------------------------------------------------------------
   view.style.left = -1 * num * container_width + 'px';
 }
 function playCarousel() {
