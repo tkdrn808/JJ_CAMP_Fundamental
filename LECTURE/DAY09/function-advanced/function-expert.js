@@ -14,7 +14,7 @@ function loop(x){
    loop(x);
 }
 
-loop(2); // 3, 4, 5, 6, 7, 8, 9, 10 (정지)
+// loop(2); // 3, 4, 5, 6, 7, 8, 9, 10 (정지)
 
 
 ///////////////////////////////////////
@@ -29,9 +29,61 @@ function start() {
   console.log('start_count:', start_count++);
   timeout_id = window.setTimeout(start, start_time);
 }
-function end() {
+function end(callback) {
   window.clearTimeout(timeout_id);
+  if (typeof callback === 'function') {
+    callback();
+  }
 }
+
+// 함수 선언
+function fnc() {}
+// 함수 표현
+var fnct = function() {};
+
+// 팩토리얼 함수(재귀 함수)
+var factorial = function fac(n) {
+  return n < 2 ? 1 : n * fac(n - 1);
+  // if ( n < 2 ) {
+  //   n = 1;
+  // } else {
+  //   n = n * fac(n - 1);
+  // }
+  // return n;
+};
+
+// function factorial(n) {
+//   return n < 2 ? 1 : n * factorial(n - 1);
+// }
+
+var fac_result = factorial(10);
+
+console.log('fac_result:', fac_result);
+
+// console.log(typeof factorial); // 'function'
+// console.log(typeof fac);       // 'undefined'
+
+// map(a, f)
+// 첫번째 인자는 처리를 할 배열(집합)
+// 두번째 인자는 첫번째 인자인 배열의 각 원소에 뭔가를 처리하는 함수
+// 반환 값은 처리된 배열을 반환하는 함수
+function map(a, f) {
+  var result = []; // 함수 실행 초기에 반환될 배열 생성
+  for (var i=0, l=a.length; i<l;i++) {
+    result.push( f(a[i]) );
+  }
+  return result;
+}
+
+var my_list = [ 4, 9, 12, 7 ];
+var excuteFn = function(n) {
+  return ( n * n ) / (n - 2);
+};
+
+var result_excute_map = map(my_list, excuteFn);
+
+console.log(result_excute_map); // [???, ???, ???]
+
 
 // ----------------------------------------------------
 
