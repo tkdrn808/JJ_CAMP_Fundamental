@@ -38,7 +38,7 @@ var next_button        = null;
 
 // 캐러셀 초기화 (이벤트 처리)
 window.onload = function() {
-  initCarousel( 0, true, 400 );
+  initCarousel( 0, true, 2000 );
 };
 
 /** @function initCarousel() */
