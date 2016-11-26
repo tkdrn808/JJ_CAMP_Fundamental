@@ -72,16 +72,17 @@
   <ul class="collection">
     <li>HDMI</li>
     <li>D-SUB</li>
+    <li class="currency">102932200</li>
     <li>USB</li>
-    <li>USB-C</li>
+    <li class="currency">5432700</li>
     <li>Screen</li>
   </ul>
 
   <ul class="currency-list">
-    <li class="currency">102932200</li>
     <li class="currency">32340300</li>
+    <li>USB-C</li>
     <li class="currency">12300</li>
-    <li class="currency">5432700</li>
+    <li>HDMI</li>
     <li class="currency">1100</li>
     <li class="currency">500</li>
   </ul>
@@ -100,6 +101,16 @@ var random_str = str_arr[random_n];
 
 console.log(random_str);
 console.log( includes(random_str, 'Screen') );
+
+console.log('%c------------------------------', 'color: #3d9a21');
+
+var currency_els = document.querySelectorAll('.currency');
+
+for ( var i=0, l=currency_els.length; i<l; i++ ) {
+  var el           = currency_els.item(i);
+  var change_value = currency(Number(el.textContent));
+  el.innerHTML = change_value;
+}
 
 </script>
 </body>
