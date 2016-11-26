@@ -5,20 +5,28 @@
   <meta charset="UTF-8">
   <title>함수 복습</title>
   <script>
+    // ------------------------------------------------
     // 함수 잘 만들고, 활용하는 것이
     // 자바스크립트를 잘하는 비결!!
+    // ------------------------------------------------
+
+    /** @function getRandomNumber : 랜덤 정수 반환 */
     function getRandomNumber(n) {
       return Math.round(Math.random() * n);
     }
 
     // 문자열 안에 원하는 문자가 포함되어 있나?
+    // 특정 문자열이 존재하는지 유무를 파악하여
+    // 처리하는 프로그래밍 특정 문자열을 수집한다.
+
+    /** @function includes : 문자열 포함 여부 확인 */
     function includes( str, check ) {
       // 전달 받은 문자 내부에 체크하고자 하는 문자열이 있나?
       // Boolean 값을 반환하는 함수
       return str.indexOf(check) > -1;
     }
-    // 특정 문자열이 존재하는지 유무를 파악하여 처리하는 프로그래밍
-    // 특정 문자열을 수집한다.
+
+    /** @function repeat : 문자열 반복처리 반환 */
     function repeat(str, repeat_count){
       var str_repeat_arr = [];
       while( repeat_count-- ) {
@@ -39,6 +47,7 @@
   </ul>
 
 <script>
+
 var collection     = document.querySelector('.collection');
 var collection_lis = collection.querySelectorAll('li');
 
@@ -48,6 +57,7 @@ for ( var str_arr=[], i=0, l=collection_lis.length; i<l; i=i+1 ) {
 }
 var random_n   = getRandomNumber(str_arr.length - 1);
 var random_str = str_arr[random_n];
+
 console.log(random_str);
 console.log( includes(random_str, 'Screen') );
 
