@@ -19,6 +19,13 @@
     }
     // 특정 문자열이 존재하는지 유무를 파악하여 처리하는 프로그래밍
     // 특정 문자열을 수집한다.
+    function repeat(str, repeat_count){
+      var str_repeat_arr = [];
+      while( repeat_count-- ) {
+        str_repeat_arr.push(str);
+      }
+      return str_repeat_arr.join('');
+    }
   </script>
 </head>
 <body>
