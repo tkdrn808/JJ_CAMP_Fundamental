@@ -64,13 +64,23 @@ function activeTabPanel(active_index) {
 
 // 이벤트 바인딩 함수
 function bindingEvents() {
-  // 1. 탭을 클릭하면 인덱스를 출력한다.
+  // 1. 인디케이터 탭 클릭 이벤트
   eventTabs();
+  // 2. 이전/다음 버튼 클릭 이벤트
+  eventButtons();
+}
+
+function prevContent() {
+  active_page_index = (--active_page_index) < 0 ? (tab_wrapper.children.length - 1): active_page_index;
+  activeTabPanel(active_page_index);
+}
+function nextContent() {
+  active_page_index = (active_page_index + 1) % tab_wrapper.children.length;
+  activeTabPanel(active_page_index);
 }
 
 // -------------------------------------------------------------------------
 // 이벤트 핸들러
-
 function eventTabs() {
   var tabs = tab_list.querySelectorAll('a');
   for ( var tab, i=0, l=tabs.length; i<l; i++ ) {
@@ -83,6 +93,15 @@ function eventTabs() {
       return false;
     };
   }
+}
+
+function eventButtons() {
+  // 사용자가 이전/다음 버튼을 누르면 처리하는 로직
+  var buttons = tab_button_group.querySelectorAll('button');
+  var prev_button = buttons[0];
+  var next_button = buttons[1];
+  prev_button.onclick = prevContent;
+  next_button.onclick = nextContent;
 }
 
 /** @function resizeCarouselHeight() 캐러셀 컴포넌트 높이를 변경하는 함수 */
