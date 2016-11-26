@@ -17,6 +17,7 @@
 // 초기 변수 정의
 var carousel;
 var tab_list;
+var tabs;
 var tab_button_group;
 var tab_wrapper;
 var active_page_index = 0;
@@ -60,6 +61,17 @@ function activeTabPanel(active_index) {
   // 탭 패널 래퍼를 이동
   var distance_x = -carousel.clientWidth * active_index + 'px';
   tab_wrapper.style.left = distance_x;
+  updateIndicators( active_index );
+}
+
+function updateIndicators(active_index) {
+  // 기존에 활성화된 탭에서 active 클래스 제거
+  var activated_tab = tab_list.querySelector('.active');
+  activated_tab.classList.remove('active');
+  // 현재 사용자가 누른 탭에 active 클래스 추가
+  var current_tab = tabs[active_index];
+  var parent = current_tab.parentNode;
+  parent.classList.add('active');
 }
 
 // 이벤트 바인딩 함수
@@ -71,18 +83,18 @@ function bindingEvents() {
 }
 
 function prevContent() {
-  active_page_index = (--active_page_index) < 0 ? (tab_wrapper.children.length - 1): active_page_index;
+  active_page_index = --active_page_index < 0 ? (tabs.length - 1) : active_page_index;
   activeTabPanel(active_page_index);
 }
 function nextContent() {
-  active_page_index = (active_page_index + 1) % tab_wrapper.children.length;
+  active_page_index = ++active_page_index % tab_wrapper.children.length;
   activeTabPanel(active_page_index);
 }
 
 // -------------------------------------------------------------------------
 // 이벤트 핸들러
 function eventTabs() {
-  var tabs = tab_list.querySelectorAll('a');
+  tabs = tab_list.querySelectorAll('a');
   for ( var tab, i=0, l=tabs.length; i<l; i++ ) {
     tab = tabs[i];
     tab.index = i;
