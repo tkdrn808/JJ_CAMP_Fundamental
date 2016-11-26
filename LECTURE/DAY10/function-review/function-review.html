@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>함수 복습</title>
+  <script>
+    // 함수 잘 만들고, 활용하는 것이
+    // 자바스크립트를 잘하는 비결!!
+    function getRandomNumber(n) {
+      return Math.round(Math.random() * n);
+    }
+
+    // 문자열 안에 원하는 문자가 포함되어 있나?
+    function includes( str, check ) {
+      // 전달 받은 문자 내부에 체크하고자 하는 문자열이 있나?
+      // Boolean 값을 반환하는 함수
+      return str.indexOf(check) > -1;
+    }
+    // 특정 문자열이 존재하는지 유무를 파악하여 처리하는 프로그래밍
+    // 특정 문자열을 수집한다.
+  </script>
+</head>
+<body>
+
+  <ul class="collection">
+    <li>HDMI</li>
+    <li>D-SUB</li>
+    <li>USB</li>
+    <li>USB-C</li>
+    <li>Screen</li>
+  </ul>
+
+<script>
+var collection     = document.querySelector('.collection');
+var collection_lis = collection.querySelectorAll('li');
+
+// 수집한 노드리스트를 순환
+for ( var str_arr=[], i=0, l=collection_lis.length; i<l; i=i+1 ) {
+  str_arr.push(collection_lis[i].textContent);
+}
+var random_n   = getRandomNumber(str_arr.length - 1);
+var random_str = str_arr[random_n];
+console.log(random_str);
+console.log( includes(random_str, 'Screen') );
+
+</script>
+</body>
+</html>
