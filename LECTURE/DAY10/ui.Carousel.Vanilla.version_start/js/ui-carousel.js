@@ -20,9 +20,12 @@ var tab_list;
 var tabs;
 var tab_button_group;
 var tab_wrapper;
-var active_page_index = 0;
-var using_animation = true;
-var animation_time = '0.4s';
+var active_page_index  = 0;
+var using_animation    = true;
+var animation_time     = '0.4s';
+var using_auto_rolling = true;
+var rolling_duration   = 500;
+var rolling_id         = 0;
 
 // -------------------------------------------------------------------------
 // 컴포넌트 초기화 함수
@@ -35,10 +38,20 @@ function initCarousel() {
   bindingEvents();
   // 애니메이션 설정
   using_animation && settingAnimation();
+  // 자동 롤링 설정
+  using_auto_rolling && autoRolling();
 }
 
 // -------------------------------------------------------------------------
 // 컴포넌트 함수
+
+function playCarousel(callback, rolling_duration) {
+  return window.setInterval(callback, rolling_duration);
+}
+
+function stopCarousel() {
+  window.clearInterval(rolling_id);
+}
 
 // 컴포넌트 문서 객체 참조
 function selectionControls() {
@@ -100,6 +113,7 @@ function eventTabs() {
       activeTabPanel( active_page_index );
       return false;
     };
+    tab.onfocus = stopCarousel;
   }
 }
 
@@ -113,7 +127,7 @@ function eventButtons() {
 }
 
 /** @function resizeCarouselHeight() 캐러셀 컴포넌트 높이를 변경하는 함수 */
-var resizeCarouselHeight = function() {
+function resizeCarouselHeight() {
   var tab_panel = tab_wrapper.querySelector('.ui-carousel-tabpanel');
   carousel.style.height = tab_panel.clientHeight + 'px';
 };
@@ -129,6 +143,10 @@ function settingAnimation() {
   tab_wrapper.style.transition = 'left '+ animation_time +' ease';
 }
 
+function autoRolling() {
+  rolling_id = playCarousel(nextContent, rolling_duration);
+}
+
 // -------------------------------------------------------------------------
 // 이벤트 핸들러
 
@@ -140,6 +158,8 @@ function bindingEvents() {
   eventTabs();
   // 2. 이전/다음 버튼 클릭 이벤트
   eventButtons();
+  carousel.onmouseenter = stopCarousel;
+  carousel.onmouseleave = autoRolling;
 }
 
 // -------------------------------------------------------------------------
